@@ -1,0 +1,50 @@
+name:                w
+version:             0.1.0.0
+github:              "jakobrs/w"
+license:             BSD3
+author:              "jakobrs"
+maintainer:          "jakobrs100@gmail.com"
+copyright:           "2022 jakobrs"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/jakobrs/w#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- tagsoup >= 0.14.8 && < 1
+- mtl >= 2.2.2 && < 2.3
+
+library:
+  source-dirs: src
+
+executables:
+  w-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - w
+
+tests:
+  w-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - w
